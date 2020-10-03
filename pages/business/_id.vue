@@ -66,7 +66,6 @@
     },
     data(){
       return {
-        url: process.env.backend,
         business: {},
         error: null
       }
@@ -80,7 +79,6 @@
     async fetch () {
       try {
         this.business = await this.$strapi.findOne('businesses', this.$route.params.id);
-        console.log(this.business);
       } catch (error) {
         this.error = error
       }
@@ -116,8 +114,9 @@
     .item-image{
       width: 100%;
       height: 100%;
+      background-repeat: no-repeat;
       background-position: center;
-      background-size: auto;
+      background-size: cover;
     }
   }
 </style>
